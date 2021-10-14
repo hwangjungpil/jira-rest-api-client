@@ -1,2 +1,8 @@
 server:
   port: 8081
+jira:
+  username: thinkhero
+  password: P@ssw0rd
+  jiraUrl: http://localhost:8080
+  projectKey: TEST
+  issueType: 10005
