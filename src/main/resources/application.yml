@@ -5,4 +5,5 @@ jira:
   password: P@ssw0rd
   jiraUrl: http://localhost:8080
   projectKey: TEST
-  issueType: 10005
+  # get from http://{jiraUrl}localhost:8080/secure/admin/ViewIssueTypes.jspa
+  issueType: 10004

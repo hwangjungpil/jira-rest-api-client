@@ -38,6 +38,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui'
 
 	// https://mvnrepository.com/artifact/com.atlassian.jira/jira-rest-java-client
 //	implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client', version: '2.0.0-m2'

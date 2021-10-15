@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.atlassian.jira:jira-rest-java-client-core:4.0.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.atlassian.jira/jira-rest-java-client-core/4.0.0/cf5b5384d71898f5169527c85e421980e8797818/jira-rest-java-client-core-4.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.atlassian.jira/jira-rest-java-client-core/4.0.0/ab3bc114aa50ca75df0bce12814390c99979189d/jira-rest-java-client-core-4.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

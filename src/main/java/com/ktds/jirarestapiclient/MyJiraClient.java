@@ -40,10 +40,11 @@ public class MyJiraClient {
                projectKey, issueType, issueSummary).setDescription(description).build();
 //       return issueClient.createIssue(newIssue).claim().getKey();
        String key= issueClient.createIssue(newIssue).claim().getKey();
+       System.out.println("issue key= "+key);
        return getIssue(key);
    }
 
-   public Issue getIssue(String issueKey){
+    public Issue getIssue(String issueKey){
        IssueRestClient issueRestClient = restClient.getIssueClient();
        try {
            return issueRestClient.getIssue(issueKey).get(timeout, TimeUnit.SECONDS);
