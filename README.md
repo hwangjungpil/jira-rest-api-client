@@ -4,13 +4,15 @@
 
 * 기능
 
-  * 티켓 생성
+  * JIRA 티켓 생성
 
     : 지정한 프로젝트, 이슈 유형으로 jira ticket을 생성 한다.
 
+    생성시 ticket key 정보를 화면에 보여준다.
+
   * rest api (swagger)
 
-    : 제공되는 rest api 
+    : 제공되는 issue 관련 rest api 
 
 * 시작하기
 
