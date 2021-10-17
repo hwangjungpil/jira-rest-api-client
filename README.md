@@ -6,9 +6,8 @@
 
   * JIRA 티켓 생성
 
-    : 지정한 프로젝트, 이슈 유형으로 jira ticket을 생성 한다.
-
-    생성시 ticket key 정보를 화면에 보여준다.
+    - 지정한 프로젝트, 이슈 유형으로 jira ticket을 생성 한다.
+    - 티켓 생성 성공시 ticket key 정보를 return 한다.
 
   * rest api (swagger)
 
