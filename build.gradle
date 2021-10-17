@@ -30,24 +30,25 @@ ext {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+//	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
+//	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
-	implementation 'io.springfox:springfox-swagger-ui'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 	// https://mvnrepository.com/artifact/com.atlassian.jira/jira-rest-java-client
 //	implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client', version: '2.0.0-m2'
 //	implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-api', version: '0.1-rc1'
 	implementation group: 'com.atlassian.jira', name: 'jira-rest-java-client-core', version: '4.0.0'
 	implementation group: 'com.atlassian.fugue', name: 'fugue', version: '2.6.1'
-
+//	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
 //	implementation group: 'junit', name: 'junit', version: '3.8.1'
 //	implementation group: 'joda-time', name: 'joda-time', version: '1.6.2'
 //	implementation group: 'com.google.guava', name: 'guava', version: 'r08'

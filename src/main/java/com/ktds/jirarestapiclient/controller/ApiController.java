@@ -1,16 +1,15 @@
 package com.ktds.jirarestapiclient.controller;
 
 import com.atlassian.jira.rest.client.api.domain.Issue;
-import com.atlassian.util.concurrent.Promise;
 import com.ktds.jirarestapiclient.MyJiraClient;
+import com.ktds.jirarestapiclient.domain.IssueDomain;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.awt.*;
+
 
 @RequestMapping(value="/api")
 @RestController
@@ -39,12 +38,29 @@ public class ApiController {
         return issue.toString();
     }
 
+    @PostMapping(value="/issue", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public String saveIssue(@RequestBody IssueDomain issueDomain){
+        MyJiraClient client = new MyJiraClient(this.username,this.password,this.jiraUrl);
+
+        System.out.println(issueDomain.getProjectKey() +","+ issueDomain.getIssueType()+","+issueDomain.getIssueSummary()+","+issueDomain.getDescription());
+        Issue issue=client.createIssue(issueDomain.getProjectKey(), issueDomain.getIssueType(), issueDomain.getIssueSummary(), issueDomain.getDescription());
+
+        return issue.getKey();
+    }
+
+    @PostMapping(value="/issue")
+    public String saveIssueFormRequest(IssueDomain issueDomain){
+        MyJiraClient client = new MyJiraClient(this.username,this.password,this.jiraUrl);
+
+        System.out.println(issueDomain.getProjectKey() +","+ issueDomain.getIssueType()+","+issueDomain.getIssueSummary()+","+issueDomain.getDescription());
+        Issue issue=client.createIssue(issueDomain.getProjectKey(), issueDomain.getIssueType(), issueDomain.getIssueSummary(), issueDomain.getDescription());
+
+        return issue.getKey();
+    }
+
     @GetMapping(value="/issue/{id}")
     public String getIssue(@PathVariable String id){
         MyJiraClient client = new MyJiraClient(this.username,this.password,this.jiraUrl);
         return client.getIssue(id).toString();
     }
-
-
-
 }
