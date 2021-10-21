@@ -6,4 +6,4 @@ jira:
   jiraUrl: http://localhost:8080
   projectKey: TEST
   # get from http://{jiraUrl}localhost:8080/secure/admin/ViewIssueTypes.jspa
-  issueType: 10005
+  issueType: 10004

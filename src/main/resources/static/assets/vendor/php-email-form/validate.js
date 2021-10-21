@@ -56,11 +56,21 @@
       headers: {'X-Requested-With': 'XMLHttpRequest'}
     })
     .then(response => {
-        return response.text()
+        if(response.ok) {
+            // exam
+            // let exam = `{"id":response.text(), "url":"http://localhost:8080"}`;
+            // JSON.parse(exam); str to JSON
+            // JSON.stringify(JSON) JSON to str;
+            return response.text();
+        } else {
+            throw new Error();
+        }
+        //issue-100
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      thisForm.querySelector('.sent-message').innerHTML = data;
+      //thisForm.querySelector('.sent-message').innerHTML = `<a href="http://localhost:8080/browse/${data}" target="_blank">${data}</a>`;
+      thisForm.querySelector('.sent-message').innerHTML = `${data}`;
       thisForm.querySelector('.sent-message').classList.add('d-block');
       thisForm.reset();
 
