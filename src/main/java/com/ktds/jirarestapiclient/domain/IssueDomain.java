@@ -8,4 +8,6 @@ public class IssueDomain {
     private Long issueType;
     private String issueSummary;
     private String description;
+    private String url;
+    private String key;
 }

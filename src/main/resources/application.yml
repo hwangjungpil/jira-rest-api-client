@@ -1,9 +1,29 @@
+spring:
+  profiles:
+    active: dev
+
 server:
   port: 8081
 jira:
   username: thinkhero
   password: P@ssw0rd
   jiraUrl: http://localhost:8080
+  projectKey: TEST
+  # get from http://{jiraUrl}localhost:8080/secure/admin/ViewIssueTypes.jspa
+  issueType: 10004
+
+---
+
+spring:
+  profiles:
+    active: prd
+
+server:
+  port: 8080
+jira:
+  username: etoos001@etoos.com
+  password: P@ssw0rd
+  jiraUrl: https://jira.etoos.com/
   projectKey: TEST
   # get from http://{jiraUrl}localhost:8080/secure/admin/ViewIssueTypes.jspa
   issueType: 10004

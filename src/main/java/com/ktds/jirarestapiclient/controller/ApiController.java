@@ -8,22 +8,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
-
 
 @RequestMapping(value="/api")
 @RestController
 public class ApiController {
     @Value("${jira.username}")
-    String username;
+    private String username;
     @Value("${jira.password}")
-    String password;
+    private String password;
     @Value("${jira.jiraUrl}")
-    String jiraUrl;
+    private String jiraUrl;
     @Value("${jira.projectKey}")
-    String projectKey;
+    private String projectKey;
     @Value("${jira.issueType}")
-    Long issueType;
+    private Long issueType;
+    private MyJiraClient client;
+
 
     @GetMapping(value="/test", produces = "application/json")
 //    @GetMapping(value="/test")
@@ -49,13 +49,20 @@ public class ApiController {
     }
 
     @PostMapping(value="/issue")
-    public String saveIssueFormRequest(IssueDomain issueDomain){
+    public IssueDomain saveIssueFormRequest(IssueDomain issueDomain){
         MyJiraClient client = new MyJiraClient(this.username,this.password,this.jiraUrl);
 
         System.out.println(issueDomain.getProjectKey() +","+ issueDomain.getIssueType()+","+issueDomain.getIssueSummary()+","+issueDomain.getDescription());
         Issue issue=client.createIssue(issueDomain.getProjectKey(), issueDomain.getIssueType(), issueDomain.getIssueSummary(), issueDomain.getDescription());
 
-        return issue.getKey();
+        IssueDomain returnIssueDomain = new IssueDomain();
+
+        returnIssueDomain.setKey(issue.getKey());
+        returnIssueDomain.setUrl(jiraUrl+"/browse/"+issue.getKey());
+        returnIssueDomain.setIssueSummary(issue.getSummary());
+        returnIssueDomain.setDescription(issue.getDescription());
+
+        return returnIssueDomain;
     }
 
     @GetMapping(value="/issue/{id}")

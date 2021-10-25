@@ -6,6 +6,7 @@ import com.atlassian.jira.rest.client.api.domain.Issue;
 import com.atlassian.jira.rest.client.api.domain.input.IssueInput;
 import com.atlassian.jira.rest.client.api.domain.input.IssueInputBuilder;
 import com.atlassian.jira.rest.client.internal.async.AsynchronousJiraRestClientFactory;
+import org.springframework.context.annotation.Bean;
 
 import java.net.URI;
 import java.util.concurrent.ExecutionException;
@@ -18,6 +19,7 @@ public class MyJiraClient {
     private final String jiraUrl;
     private final JiraRestClient restClient;
     private final long timeout;
+
 
    public MyJiraClient(String username, String password, String jiraUrl){
        this.username=username;

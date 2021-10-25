@@ -60,17 +60,20 @@
             // exam
             // let exam = `{"id":response.text(), "url":"http://localhost:8080"}`;
             // JSON.parse(exam); str to JSON
-            // JSON.stringify(JSON) JSON to str;
-            return response.text();
+            // JSON.stringify(JSON) JSON to str
+            //let returnJson = JSON.parse(response);
+            //console.log(returnJson)
+            return response.json();
         } else {
             throw new Error();
         }
         //issue-100
     })
     .then(data => {
+    console.log(data);
       thisForm.querySelector('.loading').classList.remove('d-block');
-      //thisForm.querySelector('.sent-message').innerHTML = `<a href="http://localhost:8080/browse/${data}" target="_blank">${data}</a>`;
-      thisForm.querySelector('.sent-message').innerHTML = `${data}`;
+      thisForm.querySelector('.sent-message').innerHTML = `<a href="${data.url}" target="_blank">${data.key}</a>`;
+//      thisForm.querySelector('.sent-message').innerHTML = `${data}`;
       thisForm.querySelector('.sent-message').classList.add('d-block');
       thisForm.reset();
 
