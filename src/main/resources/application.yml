@@ -1,7 +1,9 @@
 spring:
   profiles:
     active: dev
-
+---
+spring:
+  profiles: dev
 server:
   port: 8081
 jira:
@@ -15,15 +17,14 @@ jira:
 ---
 
 spring:
-  profiles:
-    active: prd
+  profiles: prd
 
 server:
   port: 8080
 jira:
-  username: etoos001@etoos.com
-  password: P@ssw0rd
-  jiraUrl: https://jira.etoos.com/
-  projectKey: TEST
+  username: etoos001
+  password: ktds1234!!
+  jiraUrl: https://jira.etoos.com
+  projectKey: MPD
   # get from http://{jiraUrl}localhost:8080/secure/admin/ViewIssueTypes.jspa
-  issueType: 10004
+  issueType: 10100
